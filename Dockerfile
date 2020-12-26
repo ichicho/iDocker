@@ -34,6 +34,7 @@ RUN groupadd $group -g $gid && \
             -g $group \
             -G sudo && \
     echo "$user ALL=(ALL:ALL) NOPASSWD: ALL" > /etc/sudoers.d/$user
+
 # Change user
 USER $user
 WORKDIR /home/$user
