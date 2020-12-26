@@ -35,6 +35,11 @@ RUN groupadd $group -g $gid && \
             -G sudo && \
     echo "$user ALL=(ALL:ALL) NOPASSWD: ALL" > /etc/sudoers.d/$user
 
+# Install gcc, python, clang
+COPY gcc_python_clang.sh /root/
+RUN bash /root/gcc_python_clang.sh && \
+    rm /root/gcc_python_clang.sh
+
 # Change user
 USER $user
 WORKDIR /home/$user
