@@ -44,5 +44,9 @@ RUN bash /root/gcc_python_clang.sh && \
 USER $user
 WORKDIR /home/$user
 
+RUN git clone https://github.com/ichicho/dotfiles.git && \
+    bash dotfiles/deploy.sh && \
+    bash dotfiles/initialize.sh
+
 # Keep container running
 CMD ["tail", "-f" ,"/dev/null"]
