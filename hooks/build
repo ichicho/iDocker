@@ -1,0 +1,6 @@
+#!/bin/bash
+docker build -t $IMAGE_NAME --no-cache . \
+             --build-arg user=$USER \
+             --build-arg uid=$UID \
+             --build-arg group=$GROUP \
+             --build-arg gid=$GID
